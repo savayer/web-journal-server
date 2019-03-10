@@ -10,6 +10,9 @@
         color:#000;
         font-size: 16px;
       }
+      #cke_1_contents {
+        height: 500px !important;
+      }
     </style>
 </head>
 <body class="hold-transition {{ config('backpack.base.skin') }} sidebar-mini">
