@@ -64,6 +64,16 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'storage' => [
+            'driver' => 'local',
+            'root'   => storage_path(),
+        ],
+        
+        'uploads' => [
+            'driver' => 'local',
+            'root'   => public_path('uploads'),
+        ],
+
     ],
 
 ];

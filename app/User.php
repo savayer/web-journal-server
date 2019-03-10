@@ -36,4 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getUserImage() {
+        return 'https://cdn-storage.speaky.com/image/8102e88b-8e40-437a-ae2e-a457b615cb69.jpeg?resize-width=640&resize-height=640';
+    }
 }
