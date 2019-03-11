@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Http\Resources\ArticleResource;
+use App\Http\Resources\ArticlesResource;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -46,10 +46,10 @@ class ArticlesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {        
         if ($id === 'all') {
-            ArticleResource::withoutWrapping();
-            return ArticleResource::collection(Article::all());
+            ArticlesResource::withoutWrapping();
+            return ArticlesResource::collection(Article::all());
         }
     }
 
