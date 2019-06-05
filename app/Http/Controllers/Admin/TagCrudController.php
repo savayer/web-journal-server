@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\CategoryRequest as StoreRequest;
-use App\Http\Requests\CategoryRequest as UpdateRequest;
+use App\Http\Requests\TagRequest as StoreRequest;
+use App\Http\Requests\TagRequest as UpdateRequest;
 use Backpack\CRUD\CrudPanel;
 
 /**
- * Class CategoryCrudController
+ * Class TagCrudController
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class CategoryCrudController extends CrudController
+class TagCrudController extends CrudController
 {
     public function setup()
     {
@@ -23,9 +23,9 @@ class CategoryCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Category');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/category');
-        $this->crud->setEntityNameStrings('category', 'categories');
+        $this->crud->setModel('App\Models\Tag');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/tag');
+        $this->crud->setEntityNameStrings('tag', 'tags');
 
         /*
         |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ class CategoryCrudController extends CrudController
         // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->setFromDb();
 
-        // add asterisk for fields that are required in CategoryRequest
+        // add asterisk for fields that are required in TagRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }

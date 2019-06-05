@@ -15,7 +15,11 @@ class ArticlesResource extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {
+    {        
+        $tagsCollection = $this->tags()->get();        
+        foreach ($tagsCollection as $tag) {
+            $tags[] = array( 'tag_id' => $tag->id, 'name' => $tag->name );
+        }
         return [
             'type'          => 'articles',
             'id'            => (string)$this->id,
@@ -23,7 +27,8 @@ class ArticlesResource extends JsonResource
                 'postTitle' => $this->postTitle,
                 'slug' => $this->slug,
                 'image' => $this->image,
-                'introtext' => $this->introtext,                         
+                'introtext' => $this->introtext,
+                'tags' => $tags
             ],
         ];
     }

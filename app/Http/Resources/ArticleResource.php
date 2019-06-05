@@ -13,17 +13,23 @@ class ArticleResource extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {
+    {        
+        $tagsCollection = $this->tags()->get();        
+        foreach ($tagsCollection as $tag) {
+            $tags[] = array( 'tag_id' => $tag->id, 'name' => $tag->name );
+        }
+        //$tags = $this->tags()->get(['tag_id', 'name'])->toArray();
         return [
-            'type'          => 'articles',
+            'type'          => 'article',
             'id'            => (string)$this->id,
             'attributes'    => [
                 'postTitle' => $this->postTitle,
                 'slug' => $this->slug,
                 'image' => $this->image,
                 'introtext' => $this->introtext,
-                'content' => $this->content                
+                'content' => $this->content,
+                'tags' => $tags
             ],
         ];
-    }
+    } 
 }

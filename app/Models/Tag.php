@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Category extends Model
+class Tag extends Model
 {
     use CrudTrait;
 
@@ -15,7 +15,7 @@ class Category extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'categories';
+    protected $table = 'tags';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
@@ -34,7 +34,6 @@ class Category extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
     /*
     |--------------------------------------------------------------------------
     | SCOPES

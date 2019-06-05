@@ -57,7 +57,8 @@ class ArticleCrudController extends CrudController
         ]);
         $this->crud->addColumn([
             'name' => 'postTitle',
-            'label' => 'Title'
+            'label' => 'Title',
+            'type' => 'link_text'
         ]);        
 
         $this->crud->addField([
@@ -76,7 +77,17 @@ class ArticleCrudController extends CrudController
             // 'disk' => 's3_bucket', // in case you need to show images from a different disk
             // 'prefix' => 'uploads/images/profile_pictures/' // in case you only store the filename in the database, this text will be prepended to the database value
         ]);
-
+        $this->crud->addField(
+            [                
+                'label' => 'Tags',
+                'type' => 'select2_multiple',
+                'name' => 'tags', // the db column for the foreign key
+                'entity' => 'tags', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'model' => 'App\Models\Tag',
+                'pivot' => true
+            ]
+        )->afterField('slug');
         $this->crud->addField(
             [   // TinyMCE
                 'name' => 'content',
@@ -88,9 +99,10 @@ class ArticleCrudController extends CrudController
 
     public function store(StoreRequest $request)
     {
-        // your additional operations before save here
+        // your additional operations before save here        
+       // dd($request);        
         $redirect_location = parent::storeCrud($request);        
-        
+        $this->crud->entry->tags()->sync($request->get('tags'));
         // your additional operations after save here                
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
@@ -99,7 +111,11 @@ class ArticleCrudController extends CrudController
     public function update(UpdateRequest $request)
     {
         // your additional operations before save here
-        $redirect_location = parent::updateCrud($request);        
+                
+        $redirect_location = parent::updateCrud($request);
+        $this->crud->entry->tags()->sync($request->get('tags'));
+
+        //$this->crud->entry->articles()->sync($request->get('articlesIds'));
         // your additional operations after save here                
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
