@@ -49,7 +49,7 @@ class ArticlesController extends Controller
     {        
         if ($id === 'all') {
             ArticlesResource::withoutWrapping();
-            return ArticlesResource::collection(\App\Models\Article::all());
+            return ArticlesResource::collection(Article::all());
         }
     }
 

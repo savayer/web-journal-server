@@ -47,8 +47,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        ArticleResource::withoutWrapping();        
-        return new ArticleResource(\App\Models\Article::find($article->id));
+        ArticleResource::withoutWrapping();         
+        return new ArticleResource($article);
     }
 
     /**

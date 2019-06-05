@@ -11,7 +11,10 @@ class Article extends Model
      *
      * @var array
      */
-    /* protected $fillable = [
-        'pagetitle', 'introtext', 'slug', 'image', 'content'
-    ]; */
+    protected $fillable = ['postTitle', 'slug', 'introtext', 'image', 'content', ];
+
+    public function tags()
+    {
+      return $this->belongsToMany('App\Models\Tag', 'articles_tags');
+    }
 }
