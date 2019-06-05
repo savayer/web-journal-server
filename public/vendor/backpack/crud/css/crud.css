@@ -3,3 +3,10 @@
 * Backpack Crud
 *
 */
+a.edit-link {
+    color: #000;
+}
+
+a.edit-link:hover {
+    text-decoration: underline;
+}

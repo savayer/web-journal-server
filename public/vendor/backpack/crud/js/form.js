@@ -34,6 +34,6 @@ jQuery(function($){
            );
         }
         
-        return n_str.join('');
+        return n_str.join('').toLowerCase();
     }
 });
