@@ -16,6 +16,11 @@ Route::resource('article', 'ArticleController');
 
 Route::resource('articles', 'ArticlesController');
 
+Route::resource('work', 'WorkController');
+
+Route::resource('works', 'WorksController');
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

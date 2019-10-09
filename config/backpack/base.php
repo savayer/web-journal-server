@@ -22,7 +22,7 @@ return [
     'developer_name' => 'Savayer',
 
     // Developer website. Link in footer.
-    'developer_link' => 'http://savayer.space',
+    'developer_link' => 'http://savayer.me',
 
     // Show powered by Laravel Backpack in the footer?
     'show_powered_by' => true,

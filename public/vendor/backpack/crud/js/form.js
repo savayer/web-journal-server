@@ -8,7 +8,8 @@ jQuery(function($){
 
     'use strict';
 
-    var $postTitle = $('input[name="postTitle"]');
+    var $postTitle = $('input[name="postTitle"]').length ? $('input[name="postTitle"]') : $('input[name="name"]');
+    
     var $slug = $('input[name="slug"]');
     $postTitle.on('input', function() {
         $slug.val(translitText( $(this).val() ));
