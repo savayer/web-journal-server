@@ -49,7 +49,7 @@ class WorksController extends Controller
     {        
         if ($id === 'all') {
             WorksResource::withoutWrapping();
-            return WorksResource::collection(Work::all());
+            return WorksResource::collection(Work::query()->orderBy('created_at','asc')->get());
         }
     }
 
