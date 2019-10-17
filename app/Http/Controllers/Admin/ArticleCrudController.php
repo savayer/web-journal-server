@@ -92,7 +92,7 @@ class ArticleCrudController extends CrudController
             [   // TinyMCE
                 'name' => 'content',
                 'label' => 'Content',
-                'type' => 'wysiwyg',        
+                'type' => 'summernote',        
             ]
         );
     }
