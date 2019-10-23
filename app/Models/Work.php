@@ -19,7 +19,7 @@ class Work extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['name', 'slug', 'image', 'content' ];    
+    protected $fillable = ['name', 'slug', 'sort', 'image', 'content' ];    
     // protected $hidden = [];
     // protected $dates = [];
 

@@ -45,6 +45,7 @@ class WorkCrudController extends CrudController
          */
         $this->crud->removeColumn('content'); 
         $this->crud->removeColumn('slug'); 
+        $this->crud->removeColumn('sort'); 
         $this->crud->addColumn([
             'name' => 'image',
             'label' => "Image",
@@ -58,7 +59,12 @@ class WorkCrudController extends CrudController
             'name' => 'name',
             'label' => 'Title',
             'type' => 'link_text'
-        ]);        
+        ]);
+        $this->crud->addColumn([
+            'name' => 'sort',
+            'label' => 'Sort',
+            'type' => 'text'
+        ])->afterColumn('name');
         
         /**
          * Fields
@@ -74,6 +80,12 @@ class WorkCrudController extends CrudController
             'label' => "Slug",
             'type' => 'text',
         ]);
+
+        $this->crud->addField([
+            'name' => 'sort',
+            'label' => 'Sort',
+            'type' => 'text'
+        ])->afterField('slug');
 
         $this->crud->addField([ // image
             'label' => "Image",
